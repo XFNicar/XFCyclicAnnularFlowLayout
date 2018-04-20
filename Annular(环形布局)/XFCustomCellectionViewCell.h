@@ -10,4 +10,7 @@
 
 @interface XFCustomCellectionViewCell : UICollectionViewCell
 
+@property (nonatomic, strong) UILabel           *numLabel;
+
+
 @end

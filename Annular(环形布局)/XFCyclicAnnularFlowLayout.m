@@ -21,6 +21,8 @@
 @implementation XFCyclicAnnularFlowLayout
 
 
+
+
 - (void)prepareLayout {
     [super prepareLayout];
     NSInteger sectionCount = [self.delegate numberOfSectionsInFlowLayout:self];
@@ -39,20 +41,26 @@
     UICollectionViewLayoutAttributes *attr = [UICollectionViewLayoutAttributes layoutAttributesForCellWithIndexPath:indexPath];
     NSInteger rowsNum = [self.delegate flowLayout:self numberOfItemsInSection:indexPath.section];
     CGFloat radius = [self.delegate flowLayout:self cyclicAnnularRadiusInSection:indexPath.section];
-    CGFloat radian = [self.delegate cyclicAnnularRadianInFlowLayout:self];
+//    CGFloat radian = [self.delegate cyclicAnnularRadianInFlowLayout:self];
+    CGFloat radian = [self.delegate flowLayout:self cyclicAnnularRadianInSection:indexPath.section];
     // 当前item 所处的弧度
-    CGFloat item_radian = indexPath.row * radian / (rowsNum - 1);
+    BOOL isClockwise = [self.delegate flowLayout:self cyclicIsClockwiseInSection:indexPath.section];
+    CGFloat item_radian =  indexPath.row * radian / (rowsNum - 1);
+
+    // 是否是顺时针 默认是顺时针
+    if (isClockwise) {
+        CGFloat startRadian = (M_PI - radian)/2;
+        item_radian = item_radian + M_PI + startRadian;
+    } else {
+        item_radian = -item_radian;
+        CGFloat startRadian = ( radian - M_PI)/2;
+        item_radian = item_radian + startRadian;
+    }
     CGFloat item_x = cosf(item_radian) * radius + SCREEN_WIDTH / 2;
     CGFloat item_y = sinf(item_radian) * radius + SCREEN_HEIGHT / 2;
 
-    
-    if (indexPath.section == 0) {
-        attr.frame = CGRectMake(item_x, item_y, 40, 40);
-    } else if (indexPath.section == 1) {
-        attr.frame = CGRectMake(item_x, item_y, 32.5, 32.5);
-    } else {
-        attr.frame = CGRectMake(item_x, item_y, 25, 25);
-    }
+    CGSize item_size = [self.delegate flowLayout:self cyclicAnnularItemSizeAtindexPath:indexPath];
+    attr.frame = CGRectMake(0, 0, item_size.width, item_size.height);
     attr.center = CGPointMake(item_x, item_y);
     [self setAttr:attr itemRadian:item_radian];
     

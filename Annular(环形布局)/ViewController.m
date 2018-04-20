@@ -10,7 +10,13 @@
 #import "XFCyclicAnnularFlowLayout.h"
 #import "XFCustomCellectionViewCell.h"
 
-@interface ViewController ()<XFCyclicAnnularFlowLayoutDelegate,UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout>
+@interface ViewController ()
+<
+XFCyclicAnnularFlowLayoutDelegate,
+UICollectionViewDataSource,
+UICollectionViewDelegate,
+UICollectionViewDelegateFlowLayout
+>
 
 
 @property (nonatomic ,strong) UICollectionView      *collectionView;
@@ -31,22 +37,22 @@
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 20;
+    return 6;
 }
 
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    UICollectionViewCell *cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:@"CV_CELL" forIndexPath:indexPath];
+    XFCustomCellectionViewCell *cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:@"CV_CELL" forIndexPath:indexPath];
+    cell.numLabel.text = [NSString stringWithFormat:@"%ld-%ld",indexPath.section,indexPath.row];
     
-//    if (indexPath.section == 0) {
-//        cell.layer.cornerRadius = 20;
-//    } else if (indexPath.section == 1) {
-//        cell.layer.cornerRadius = 16.25;
-//    } else {
-//        cell.layer.cornerRadius = 12.5;
-//    }
+    if (indexPath.section == 0) {
+        cell.layer.cornerRadius = 20;
+    } else if (indexPath.section == 1) {
+        cell.layer.cornerRadius = 16.25;
+    } else {
+        cell.layer.cornerRadius = 12.5;
+    }
     
-    cell.backgroundColor =  [UIColor redColor];
     return cell;
 }
 
@@ -59,38 +65,45 @@
 }
 // 当前组有多少个元素
 - (NSInteger)flowLayout:(XFCyclicAnnularFlowLayout *)flowLayout  numberOfItemsInSection:(NSInteger)sectio {
-    return 20;
+    return 6;
 }
 // 传入当前组的环绕半径
 - (CGFloat)flowLayout:(XFCyclicAnnularFlowLayout *)flowLayout cyclicAnnularRadiusInSection:(NSInteger)section {
     if (section == 0) {
-        return 150;
+        return 160;
     } else if (section == 1) {
-        return 100;
+        return 120;
     } else {
-        return 50;
+        return 80;
     }
     
 }
 // 传入当前组的itemsize
-- (CGSize)flowLayout:(XFCyclicAnnularFlowLayout *)flowLayout cyclicAnnularItemSizeInSection:(NSInteger)section {
+- (CGSize)flowLayout:(XFCyclicAnnularFlowLayout *)flowLayout cyclicAnnularItemSizeAtindexPath:(NSIndexPath *)indexPath; {
     
     
-    if (section == 0) {
+    if (indexPath.section == 0) {
         return CGSizeMake(40, 40);
-    } else if (section == 1) {
+    } else if (indexPath.section == 1) {
         return CGSizeMake(32.5, 32.5);
     } else {
         return CGSizeMake(25, 25);
     }
 }
+
+
 // 弧度范围
-- (CGFloat)cyclicAnnularRadianInFlowLayout:(XFCyclicAnnularFlowLayout *)flowLyout {
-    return -2*M_PI;
+- (CGFloat)flowLayout:(XFCyclicAnnularFlowLayout *)flowLayout cyclicAnnularRadianInSection:(NSInteger)section {
+    return 2* M_PI / 4 ;
 }
+
 
 - (XFCyclicAnnularItemOrientation)cyclicAnnularItemOrientationInFlowLayout:(XFCyclicAnnularFlowLayout *)flowLyout {
     return XFCyclicAnnularItemOrientationInside;
+}
+
+- (BOOL)flowLayout:(XFCyclicAnnularFlowLayout *)flowLayout cyclicIsClockwiseInSection:(NSInteger)section {
+    return NO;
 }
 
 

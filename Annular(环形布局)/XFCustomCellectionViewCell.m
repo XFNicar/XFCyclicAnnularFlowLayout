@@ -12,6 +12,7 @@
 
 @property (nonatomic, strong) UIImageView       *logo;
 
+
 @end
 
 @implementation XFCustomCellectionViewCell
@@ -21,9 +22,24 @@
         self.logo = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"红领巾.jpg"]];
         self.logo.frame = self.bounds;
         [self addSubview:self.logo];
+        self.numLabel.frame = self.bounds;
+        [self.logo addSubview:self.numLabel];
+       
     }
     return self;
 }
 
+
+- (UILabel *)numLabel {
+    if (_numLabel == nil) {
+        UILabel *label          = [[UILabel alloc]init];
+        label.textAlignment     = NSTextAlignmentCenter;
+        label.textColor         = [UIColor blackColor];
+        label.backgroundColor   = [UIColor redColor];
+        label.font              = [UIFont systemFontOfSize:12];
+        _numLabel               = label;
+    }
+    return _numLabel;
+}
 
 @end
