@@ -1,34 +1,36 @@
 //
-//  XFCustomCellectionViewCell.m
+//  XFSignAlertViewCVCell.m
 //  Annular(环形布局)
 //
-//  Created by YanYi on 2018/4/19.
+//  Created by YanYi on 2018/4/20.
 //  Copyright © 2018年 YanYi. All rights reserved.
 //
 
-#import "XFCustomCellectionViewCell.h"
+#import "XFSignAlertViewCVCell.h"
 
 #define VALUE_RANDOM ((arc4random()%256) / 255.f)
 #define COLOR_RANDOM [UIColor colorWithRed:VALUE_RANDOM green:VALUE_RANDOM blue:VALUE_RANDOM alpha:1]
 
-@interface XFCustomCellectionViewCell()
+@interface XFSignAlertViewCVCell()
 
 @property (nonatomic, strong) UIImageView       *logo;
 
 
 @end
 
-@implementation XFCustomCellectionViewCell
+@implementation XFSignAlertViewCVCell
+
+
 
 - (instancetype)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
-//        self.logo = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"红领巾.jpg"]];
+        //        self.logo = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"红领巾.jpg"]];
         self.logo = [[UIImageView alloc]init];
         self.logo.frame = self.bounds;
         [self addSubview:self.logo];
         self.numLabel.frame = self.bounds;
         [self.logo addSubview:self.numLabel];
-
+        
         self.logo.backgroundColor = COLOR_RANDOM;
         self.clipsToBounds = YES;
     }
@@ -47,5 +49,6 @@
     }
     return _numLabel;
 }
+
 
 @end

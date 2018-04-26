@@ -1,16 +1,17 @@
 //
-//  ViewController.m
+//  XFSignInAlertView.m
 //  Annular(环形布局)
 //
-//  Created by YanYi on 2018/4/19.
+//  Created by YanYi on 2018/4/20.
 //  Copyright © 2018年 YanYi. All rights reserved.
 //
 
-#import "ViewController.h"
-#import "XFCyclicAnnularFlowLayout.h"
-#import "XFCustomCellectionViewCell.h"
+#import "XFSignInAlertView.h"
 
-@interface ViewController ()
+#import "XFCyclicAnnularFlowLayout.h"
+#import "XFSignAlertViewCVCell.h"
+
+@interface XFSignInAlertView ()
 <
 XFCyclicAnnularFlowLayoutDelegate,
 UICollectionViewDataSource,
@@ -18,19 +19,25 @@ UICollectionViewDelegate,
 UICollectionViewDelegateFlowLayout
 >
 
-
 @property (nonatomic ,strong) UICollectionView      *collectionView;
+
 
 @end
 
-@implementation ViewController
+@implementation XFSignInAlertView
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    [self.view addSubview:self.collectionView];
-    [self.collectionView reloadData];
-    // Do any additional setup after loading the view, typically from a nib.
+- (instancetype)initWithFrame:(CGRect)frame {
+    if (self = [super initWithFrame:frame]) {
+        [self addSubview:self.collectionView];
+        [self.collectionView reloadData];
+    }
+    return self;
 }
+
+- (void)updateWithSignInfoData:(id)data {
+    
+}
+
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
     return 3;
@@ -42,8 +49,8 @@ UICollectionViewDelegateFlowLayout
 
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    XFCustomCellectionViewCell *cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:@"CV_CELL" forIndexPath:indexPath];
-    cell.numLabel.text = [NSString stringWithFormat:@"%ld-%ld",indexPath.section,indexPath.row];
+    XFSignAlertViewCVCell *cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:@"CV_CELL" forIndexPath:indexPath];
+//    cell.numLabel.text = [NSString stringWithFormat:@"%ld-%ld",indexPath.section,indexPath.row];
     
     if (indexPath.section == 0) {
         cell.layer.cornerRadius = 20;
@@ -93,7 +100,7 @@ UICollectionViewDelegateFlowLayout
 
 // 弧度范围
 - (CGFloat)flowLayout:(XFCyclicAnnularFlowLayout *)flowLayout cyclicAnnularRadianInSection:(NSInteger)section {
-    return 2* M_PI / 2 ;
+    return 2 * M_PI / 2 ;
 }
 
 
@@ -102,7 +109,7 @@ UICollectionViewDelegateFlowLayout
 }
 
 - (BOOL)flowLayout:(XFCyclicAnnularFlowLayout *)flowLayout cyclicIsClockwiseInSection:(NSInteger)section {
-    return NO;
+    return YES;
 }
 
 
@@ -113,17 +120,15 @@ UICollectionViewDelegateFlowLayout
         customLayout.minimumInteritemSpacing = 5;
         customLayout.delegate = self;
         customLayout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
-        UICollectionView * collectionView = [[UICollectionView alloc] initWithFrame:self.view.bounds collectionViewLayout:customLayout];
+        UICollectionView * collectionView = [[UICollectionView alloc] initWithFrame:self.bounds collectionViewLayout:customLayout];
         collectionView.backgroundColor = [UIColor whiteColor];
         collectionView.dataSource = self;
         collectionView.delegate = self;
         collectionView.scrollEnabled = YES;
         collectionView.alwaysBounceHorizontal = YES;
         // 注册cell、sectionHeader、sectionFooter
-        [collectionView registerClass:[XFCustomCellectionViewCell class] forCellWithReuseIdentifier:@"CV_CELL"];
-//        [collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"CV_CELL"];
-        [collectionView registerClass:[UICollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"CV_HEADER"];
-        [collectionView registerClass:[UICollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:@"CV_FOOTER"];
+        [collectionView registerClass:[XFSignAlertViewCVCell class] forCellWithReuseIdentifier:@"CV_CELL"];
+
         _collectionView = collectionView;
     }
     return _collectionView;

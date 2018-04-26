@@ -19,13 +19,11 @@ typedef NS_ENUM(NSUInteger, XFCyclicAnnularItemOrientation) {
 
 @protocol XFCyclicAnnularFlowLayoutDelegate <NSObject>
 
-
-
-
 // 当前组有多少个元素
 - (NSInteger)flowLayout:(XFCyclicAnnularFlowLayout *)flowLayout  numberOfItemsInSection:(NSInteger)section;
 // 传入当前组的环绕半径
 - (CGFloat)flowLayout:(XFCyclicAnnularFlowLayout *)flowLayout cyclicAnnularRadiusInSection:(NSInteger)section;
+
 // 传入当前组的itemsize
 - (CGSize)flowLayout:(XFCyclicAnnularFlowLayout *)flowLayout cyclicAnnularItemSizeAtindexPath:(NSIndexPath *)indexPath;
 // 所属组的 弧度范围

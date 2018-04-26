@@ -14,13 +14,19 @@
 
 @interface XFCyclicAnnularFlowLayout ()
 
-@property (nonatomic, strong) NSMutableArray        *myAttrs;
+@property (nonatomic, strong) NSMutableArray        *myAttrs;           //
+@property (nonatomic, assign) BOOL                  isClockwise;        // 是否顺时针排布 默认为YES
 
 @end
 
 @implementation XFCyclicAnnularFlowLayout
 
-
+- (instancetype)init {
+    if (self = [super init]) {
+        self.isClockwise = YES;
+    }
+    return self;
+}
 
 
 - (void)prepareLayout {
@@ -39,16 +45,22 @@
 - (UICollectionViewLayoutAttributes *)layoutAttributesForItemAtIndexPath:(NSIndexPath *)indexPath {
     
     UICollectionViewLayoutAttributes *attr = [UICollectionViewLayoutAttributes layoutAttributesForCellWithIndexPath:indexPath];
+    // 当前组的item数量
     NSInteger rowsNum = [self.delegate flowLayout:self numberOfItemsInSection:indexPath.section];
+    // 当前组的半径
     CGFloat radius = [self.delegate flowLayout:self cyclicAnnularRadiusInSection:indexPath.section];
-//    CGFloat radian = [self.delegate cyclicAnnularRadianInFlowLayout:self];
+    // 当前组的弧度
     CGFloat radian = [self.delegate flowLayout:self cyclicAnnularRadianInSection:indexPath.section];
     // 当前item 所处的弧度
-    BOOL isClockwise = [self.delegate flowLayout:self cyclicIsClockwiseInSection:indexPath.section];
     CGFloat item_radian =  indexPath.row * radian / (rowsNum - 1);
 
-    // 是否是顺时针 默认是顺时针
-    if (isClockwise) {
+
+    // 是否顺时针排布，默认顺时针
+    if (self.delegate && [self.delegate respondsToSelector:@selector(flowLayout:cyclicIsClockwiseInSection:)]) {
+        self.isClockwise = [self.delegate flowLayout:self cyclicIsClockwiseInSection:indexPath.section];
+    }
+
+    if (self.isClockwise) {
         CGFloat startRadian = (M_PI - radian)/2;
         item_radian = item_radian + M_PI + startRadian;
     } else {
@@ -101,6 +113,10 @@
         _myAttrs = [NSMutableArray new];
     }
     return _myAttrs;
+}
+
+- (BOOL)isClockwise {
+    return _isClockwise;
 }
 
 @end

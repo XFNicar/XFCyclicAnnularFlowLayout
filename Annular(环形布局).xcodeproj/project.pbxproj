@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A0526C072089E6B1006D58EF /* SignInAlertViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0526C062089E6B1006D58EF /* SignInAlertViewController.m */; };
+		A0526C0B2089E6EF006D58EF /* XFSignInAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = A0526C0A2089E6EF006D58EF /* XFSignInAlertView.m */; };
+		A0526C0E2089E7F4006D58EF /* XFSignAlertViewCVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A0526C0D2089E7F4006D58EF /* XFSignAlertViewCVCell.m */; };
 		A07A512E2088890E00F35AEB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A07A512D2088890E00F35AEB /* AppDelegate.m */; };
 		A07A51312088890E00F35AEB /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A07A51302088890E00F35AEB /* ViewController.m */; };
 		A07A51342088890E00F35AEB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A07A51322088890E00F35AEB /* Main.storyboard */; };
@@ -19,6 +22,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A0526C052089E6B1006D58EF /* SignInAlertViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SignInAlertViewController.h; sourceTree = "<group>"; };
+		A0526C062089E6B1006D58EF /* SignInAlertViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SignInAlertViewController.m; sourceTree = "<group>"; };
+		A0526C092089E6EF006D58EF /* XFSignInAlertView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XFSignInAlertView.h; sourceTree = "<group>"; };
+		A0526C0A2089E6EF006D58EF /* XFSignInAlertView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XFSignInAlertView.m; sourceTree = "<group>"; };
+		A0526C0C2089E7F4006D58EF /* XFSignAlertViewCVCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XFSignAlertViewCVCell.h; sourceTree = "<group>"; };
+		A0526C0D2089E7F4006D58EF /* XFSignAlertViewCVCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XFSignAlertViewCVCell.m; sourceTree = "<group>"; };
 		A07A51292088890D00F35AEB /* Annular(环形布局).app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Annular(环形布局).app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A07A512C2088890D00F35AEB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		A07A512D2088890E00F35AEB /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -47,6 +56,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A0526C082089E6B7006D58EF /* XFCyclicAnnularViews */ = {
+			isa = PBXGroup;
+			children = (
+				A0526C092089E6EF006D58EF /* XFSignInAlertView.h */,
+				A0526C0A2089E6EF006D58EF /* XFSignInAlertView.m */,
+				A0526C0C2089E7F4006D58EF /* XFSignAlertViewCVCell.h */,
+				A0526C0D2089E7F4006D58EF /* XFSignAlertViewCVCell.m */,
+			);
+			path = XFCyclicAnnularViews;
+			sourceTree = "<group>";
+		};
 		A07A51202088890D00F35AEB = {
 			isa = PBXGroup;
 			children = (
@@ -71,6 +91,9 @@
 				A07A512D2088890E00F35AEB /* AppDelegate.m */,
 				A07A512F2088890E00F35AEB /* ViewController.h */,
 				A07A51302088890E00F35AEB /* ViewController.m */,
+				A0526C082089E6B7006D58EF /* XFCyclicAnnularViews */,
+				A0526C052089E6B1006D58EF /* SignInAlertViewController.h */,
+				A0526C062089E6B1006D58EF /* SignInAlertViewController.m */,
 				A07A51452088A37800F35AEB /* XFCustomCellectionViewCell.h */,
 				A07A51462088A37800F35AEB /* XFCustomCellectionViewCell.m */,
 				A07A51422088896D00F35AEB /* XFCyclicAnnularFlowLayout.h */,
@@ -158,6 +181,9 @@
 				A07A51312088890E00F35AEB /* ViewController.m in Sources */,
 				A07A51472088A37800F35AEB /* XFCustomCellectionViewCell.m in Sources */,
 				A07A513C2088890F00F35AEB /* main.m in Sources */,
+				A0526C072089E6B1006D58EF /* SignInAlertViewController.m in Sources */,
+				A0526C0B2089E6EF006D58EF /* XFSignInAlertView.m in Sources */,
+				A0526C0E2089E7F4006D58EF /* XFSignAlertViewCVCell.m in Sources */,
 				A07A51442088896D00F35AEB /* XFCyclicAnnularFlowLayout.m in Sources */,
 				A07A512E2088890E00F35AEB /* AppDelegate.m in Sources */,
 			);
