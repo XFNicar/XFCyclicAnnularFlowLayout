@@ -27,6 +27,12 @@ UICollectionViewDelegateFlowLayout
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    NSNumberFormatter *moneyFormatter = [[NSNumberFormatter alloc] init];
+    moneyFormatter.numberStyle = kCFNumberFormatterCurrencyStyle;
+    NSString *nilStr;
+    NSString *actPrice = [moneyFormatter stringFromNumber:[NSNumber numberWithDouble:[nilStr doubleValue]]];
+    NSLog(@"%@",actPrice);
     [self.view addSubview:self.collectionView];
     [self.collectionView reloadData];
     // Do any additional setup after loading the view, typically from a nib.
