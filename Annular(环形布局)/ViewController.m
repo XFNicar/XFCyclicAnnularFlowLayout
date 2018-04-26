@@ -28,14 +28,48 @@ UICollectionViewDelegateFlowLayout
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    NSNumberFormatter *moneyFormatter = [[NSNumberFormatter alloc] init];
-    moneyFormatter.numberStyle = kCFNumberFormatterCurrencyStyle;
-    NSString *nilStr;
-    NSString *actPrice = [moneyFormatter stringFromNumber:[NSNumber numberWithDouble:[nilStr doubleValue]]];
-    NSLog(@"%@",actPrice);
+    NSArray *sub_strs = @[@"1",@"3",@"5",@"7",@"9"];
+    NSMutableString *numberStr = [[NSMutableString alloc]initWithString: @"3267436217453761"];
+    for (int index = 0; index < sub_strs.count; index ++) {
+        NSString *locStr = sub_strs[index];
+        while ([numberStr rangeOfString:locStr].location != NSNotFound) {
+            NSRange range = [numberStr rangeOfString:locStr];
+            NSString *repStr = [self letterWithNumber:[locStr  integerValue]];
+            [numberStr replaceCharactersInRange:range withString:repStr];
+        }
+    }
+    
     [self.view addSubview:self.collectionView];
     [self.collectionView reloadData];
     // Do any additional setup after loading the view, typically from a nib.
+}
+- (NSInteger)fibonacciValueWithNumber:(NSInteger)number {
+    switch (number) {
+        case 1:
+            return 1;
+            break;
+        case 3:
+            return 2;
+            break;
+        case 5:
+            return 3;
+            break;
+        case 7:
+            return 5;
+            break;
+        case 9:
+            return 8;
+            break;
+        default:
+            return 0;
+            break;
+    }
+}
+
+- (NSString *)letterWithNumber:(NSInteger)number {
+    NSInteger fibonacciValue = [self fibonacciValueWithNumber:number];
+    fibonacciValue += 96;
+    return [NSString stringWithFormat:@"%c", (int)fibonacciValue];
 }
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
