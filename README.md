@@ -3,7 +3,7 @@
 ## CollectionView 实现扇形（环形）布局
 
 
-<font color= green size=3>**功能设置**</font>
+<font color= green size=4.5>**功能设置**</font>
 
 * 1.设置有多少层扇形（环形）
 
@@ -24,7 +24,7 @@
 * 7.设置该层环形中所有元素是否顺时针排布
     * <font color="#660000">默认是顺时针排布</font><br />
 
-<font color=green , size=4>**API说明**</font>
+<font color=green , size=4.5>**API说明**</font>
 
 
 *  <font color=red , size=3>**当前组（环形）有多少个元素**</font>
