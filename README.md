@@ -84,10 +84,10 @@
  	
 
     		typedef NS_ENUM(NSUInteger, XFCyclicAnnularItemOrientation) {
-    		XFCyclicAnnularItemOrientationUp,           // 朝上 默认
-    		XFCyclicAnnularItemOrientationDown,         // 朝下
-    		XFCyclicAnnularItemOrientationInside,       // 朝内
-    		XFCyclicAnnularItemOrientationOutside       // 朝外
+    			XFCyclicAnnularItemOrientationUp,           // 朝上 默认
+    			XFCyclicAnnularItemOrientationDown,         // 朝下
+    			XFCyclicAnnularItemOrientationInside,       // 朝内
+    			XFCyclicAnnularItemOrientationOutside       // 朝外
     		};
     
  
