@@ -28,6 +28,7 @@ UICollectionViewDelegateFlowLayout
 
 - (instancetype)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
+        self.collectionView.frame = CGRectMake(0, 0, frame.size.width, frame.size.height);
         [self addSubview:self.collectionView];
         [self.collectionView reloadData];
     }
@@ -50,7 +51,6 @@ UICollectionViewDelegateFlowLayout
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     XFSignAlertViewCVCell *cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:@"CV_CELL" forIndexPath:indexPath];
-//    cell.numLabel.text = [NSString stringWithFormat:@"%ld-%ld",indexPath.section,indexPath.row];
     
     if (indexPath.section == 0) {
         cell.layer.cornerRadius = 20;
@@ -120,12 +120,12 @@ UICollectionViewDelegateFlowLayout
         customLayout.minimumInteritemSpacing = 5;
         customLayout.delegate = self;
         customLayout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
-        UICollectionView * collectionView = [[UICollectionView alloc] initWithFrame:self.bounds collectionViewLayout:customLayout];
+        UICollectionView * collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, 0, 0) collectionViewLayout:customLayout];
         collectionView.backgroundColor = [UIColor whiteColor];
         collectionView.dataSource = self;
         collectionView.delegate = self;
         collectionView.scrollEnabled = YES;
-        collectionView.alwaysBounceHorizontal = YES;
+        collectionView.clipsToBounds = NO;
         // 注册cell、sectionHeader、sectionFooter
         [collectionView registerClass:[XFSignAlertViewCVCell class] forCellWithReuseIdentifier:@"CV_CELL"];
 

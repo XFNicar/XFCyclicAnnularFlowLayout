@@ -9,22 +9,6 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Annular(&#x73af;&#x5f62;&#x5e03;&#x5c40;)/ViewController.m"
-            timestampString = "546416494.749294"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "45"
-            endingLineNumber = "45"
-            landmarkName = "-viewDidLoad"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "Annular(&#x73af;&#x5f62;&#x5e03;&#x5c40;)/XFCustomCellectionViewCell.m"
             timestampString = "545907901.9020309"
             startingColumnNumber = "9223372036854775807"

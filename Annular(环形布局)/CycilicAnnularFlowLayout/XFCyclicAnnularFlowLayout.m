@@ -44,6 +44,11 @@
 
 - (UICollectionViewLayoutAttributes *)layoutAttributesForItemAtIndexPath:(NSIndexPath *)indexPath {
     
+    CGSize scrollViewSize = self.collectionView.frame.size;
+    CGFloat maxRadius = [self.delegate flowLayout:self cyclicAnnularRadiusInSection:0];
+    
+//    maxRadius += [self.delegate flowLayout:self cyclicAnnularItemSizeAtindexPath:[NSIndexPath indexPathForRow:<#(NSInteger)#> inSection:<#(NSInteger)#>]];
+    
     UICollectionViewLayoutAttributes *attr = [UICollectionViewLayoutAttributes layoutAttributesForCellWithIndexPath:indexPath];
     // 当前组的item数量
     NSInteger rowsNum = [self.delegate flowLayout:self numberOfItemsInSection:indexPath.section];
@@ -68,8 +73,8 @@
         CGFloat startRadian = ( radian - M_PI)/2;
         item_radian = item_radian + startRadian;
     }
-    CGFloat item_x = cosf(item_radian) * radius + SCREEN_WIDTH / 2;
-    CGFloat item_y = sinf(item_radian) * radius + SCREEN_HEIGHT / 2;
+    CGFloat item_x = cosf(item_radian) * radius + scrollViewSize.width / 2;
+    CGFloat item_y = sinf(item_radian) * radius + scrollViewSize.width / 2;
 
     CGSize item_size = [self.delegate flowLayout:self cyclicAnnularItemSizeAtindexPath:indexPath];
     attr.frame = CGRectMake(0, 0, item_size.width, item_size.height);

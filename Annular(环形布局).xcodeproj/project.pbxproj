@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A0526C072089E6B1006D58EF /* SignInAlertViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0526C062089E6B1006D58EF /* SignInAlertViewController.m */; };
 		A0526C0B2089E6EF006D58EF /* XFSignInAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = A0526C0A2089E6EF006D58EF /* XFSignInAlertView.m */; };
 		A0526C0E2089E7F4006D58EF /* XFSignAlertViewCVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A0526C0D2089E7F4006D58EF /* XFSignAlertViewCVCell.m */; };
 		A0574CF820915C54007FAF5D /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = A0574CF720915C54007FAF5D /* README.md */; };
@@ -18,13 +17,10 @@
 		A07A51392088890F00F35AEB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A07A51372088890F00F35AEB /* LaunchScreen.storyboard */; };
 		A07A513C2088890F00F35AEB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A07A513B2088890F00F35AEB /* main.m */; };
 		A07A51442088896D00F35AEB /* XFCyclicAnnularFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = A07A51432088896D00F35AEB /* XFCyclicAnnularFlowLayout.m */; };
-		A07A51472088A37800F35AEB /* XFCustomCellectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A07A51462088A37800F35AEB /* XFCustomCellectionViewCell.m */; };
 		A07A51492088BA1900F35AEB /* 红领巾.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A07A51482088BA1900F35AEB /* 红领巾.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		A0526C052089E6B1006D58EF /* SignInAlertViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SignInAlertViewController.h; sourceTree = "<group>"; };
-		A0526C062089E6B1006D58EF /* SignInAlertViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SignInAlertViewController.m; sourceTree = "<group>"; };
 		A0526C092089E6EF006D58EF /* XFSignInAlertView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XFSignInAlertView.h; sourceTree = "<group>"; };
 		A0526C0A2089E6EF006D58EF /* XFSignInAlertView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XFSignInAlertView.m; sourceTree = "<group>"; };
 		A0526C0C2089E7F4006D58EF /* XFSignAlertViewCVCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XFSignAlertViewCVCell.h; sourceTree = "<group>"; };
@@ -42,8 +38,6 @@
 		A07A513B2088890F00F35AEB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A07A51422088896D00F35AEB /* XFCyclicAnnularFlowLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XFCyclicAnnularFlowLayout.h; sourceTree = "<group>"; };
 		A07A51432088896D00F35AEB /* XFCyclicAnnularFlowLayout.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XFCyclicAnnularFlowLayout.m; sourceTree = "<group>"; };
-		A07A51452088A37800F35AEB /* XFCustomCellectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XFCustomCellectionViewCell.h; sourceTree = "<group>"; };
-		A07A51462088A37800F35AEB /* XFCustomCellectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XFCustomCellectionViewCell.m; sourceTree = "<group>"; };
 		A07A51482088BA1900F35AEB /* 红领巾.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "红领巾.jpg"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -61,12 +55,22 @@
 		A0526C082089E6B7006D58EF /* XFCyclicAnnularViews */ = {
 			isa = PBXGroup;
 			children = (
+				A07A51482088BA1900F35AEB /* 红领巾.jpg */,
 				A0526C092089E6EF006D58EF /* XFSignInAlertView.h */,
 				A0526C0A2089E6EF006D58EF /* XFSignInAlertView.m */,
 				A0526C0C2089E7F4006D58EF /* XFSignAlertViewCVCell.h */,
 				A0526C0D2089E7F4006D58EF /* XFSignAlertViewCVCell.m */,
 			);
 			path = XFCyclicAnnularViews;
+			sourceTree = "<group>";
+		};
+		A0574D212091D171007FAF5D /* CycilicAnnularFlowLayout */ = {
+			isa = PBXGroup;
+			children = (
+				A07A51422088896D00F35AEB /* XFCyclicAnnularFlowLayout.h */,
+				A07A51432088896D00F35AEB /* XFCyclicAnnularFlowLayout.m */,
+			);
+			path = CycilicAnnularFlowLayout;
 			sourceTree = "<group>";
 		};
 		A07A51202088890D00F35AEB = {
@@ -88,18 +92,12 @@
 		A07A512B2088890D00F35AEB /* Annular(环形布局) */ = {
 			isa = PBXGroup;
 			children = (
-				A07A51482088BA1900F35AEB /* 红领巾.jpg */,
 				A07A512C2088890D00F35AEB /* AppDelegate.h */,
 				A07A512D2088890E00F35AEB /* AppDelegate.m */,
 				A07A512F2088890E00F35AEB /* ViewController.h */,
 				A07A51302088890E00F35AEB /* ViewController.m */,
+				A0574D212091D171007FAF5D /* CycilicAnnularFlowLayout */,
 				A0526C082089E6B7006D58EF /* XFCyclicAnnularViews */,
-				A0526C052089E6B1006D58EF /* SignInAlertViewController.h */,
-				A0526C062089E6B1006D58EF /* SignInAlertViewController.m */,
-				A07A51452088A37800F35AEB /* XFCustomCellectionViewCell.h */,
-				A07A51462088A37800F35AEB /* XFCustomCellectionViewCell.m */,
-				A07A51422088896D00F35AEB /* XFCyclicAnnularFlowLayout.h */,
-				A07A51432088896D00F35AEB /* XFCyclicAnnularFlowLayout.m */,
 				A07A51322088890E00F35AEB /* Main.storyboard */,
 				A07A51352088890F00F35AEB /* Assets.xcassets */,
 				A07A51372088890F00F35AEB /* LaunchScreen.storyboard */,
@@ -183,9 +181,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A07A51312088890E00F35AEB /* ViewController.m in Sources */,
-				A07A51472088A37800F35AEB /* XFCustomCellectionViewCell.m in Sources */,
 				A07A513C2088890F00F35AEB /* main.m in Sources */,
-				A0526C072089E6B1006D58EF /* SignInAlertViewController.m in Sources */,
 				A0526C0B2089E6EF006D58EF /* XFSignInAlertView.m in Sources */,
 				A0526C0E2089E7F4006D58EF /* XFSignAlertViewCVCell.m in Sources */,
 				A07A51442088896D00F35AEB /* XFCyclicAnnularFlowLayout.m in Sources */,
