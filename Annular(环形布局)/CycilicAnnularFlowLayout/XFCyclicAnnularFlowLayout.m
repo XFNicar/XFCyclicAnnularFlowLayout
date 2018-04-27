@@ -33,7 +33,7 @@
     [super prepareLayout];
     NSInteger sectionCount = [self.delegate numberOfSectionsInFlowLayout:self];
     for (NSInteger section = 0; section < sectionCount; section ++ ) {
-        NSInteger rowCount = [self.delegate flowLayout:self numberOfItemsInSection:section];
+        NSInteger rowCount = [self.collectionView.dataSource numberOfSectionsInCollectionView:self.collectionView];
         for (NSInteger row = 0; row < rowCount; row ++) {
             NSIndexPath *indexPath = [NSIndexPath indexPathForRow:row inSection:section];
             [self.myAttrs addObject:[self layoutAttributesForItemAtIndexPath:indexPath]];
@@ -45,13 +45,10 @@
 - (UICollectionViewLayoutAttributes *)layoutAttributesForItemAtIndexPath:(NSIndexPath *)indexPath {
     
     CGSize scrollViewSize = self.collectionView.frame.size;
-    CGFloat maxRadius = [self.delegate flowLayout:self cyclicAnnularRadiusInSection:0];
-    
-//    maxRadius += [self.delegate flowLayout:self cyclicAnnularItemSizeAtindexPath:[NSIndexPath indexPathForRow:<#(NSInteger)#> inSection:<#(NSInteger)#>]];
     
     UICollectionViewLayoutAttributes *attr = [UICollectionViewLayoutAttributes layoutAttributesForCellWithIndexPath:indexPath];
     // 当前组的item数量
-    NSInteger rowsNum = [self.delegate flowLayout:self numberOfItemsInSection:indexPath.section];
+    NSInteger rowsNum = [self.collectionView.dataSource collectionView:self.collectionView numberOfItemsInSection:indexPath.section];
     // 当前组的半径
     CGFloat radius = [self.delegate flowLayout:self cyclicAnnularRadiusInSection:indexPath.section];
     // 当前组的弧度

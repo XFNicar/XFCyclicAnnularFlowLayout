@@ -35,15 +35,14 @@ UICollectionViewDelegateFlowLayout
     return self;
 }
 
-- (void)updateWithSignInfoData:(id)data {
-    
-}
 
 
+// 一共有多少层 环形
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
     return 3;
 }
 
+// 盖层环形有多少item
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     return 10;
 }
@@ -65,14 +64,14 @@ UICollectionViewDelegateFlowLayout
 //- collectionitem
 
 
-// 一共有多少组
-- (NSInteger)numberOfSectionsInFlowLayout:(XFCyclicAnnularFlowLayout *)flowLayout {
-    return 3;
-}
-// 当前组有多少个元素
-- (NSInteger)flowLayout:(XFCyclicAnnularFlowLayout *)flowLayout  numberOfItemsInSection:(NSInteger)sectio {
-    return 10;
-}
+//// 一共有多少组
+//- (NSInteger)numberOfSectionsInFlowLayout:(XFCyclicAnnularFlowLayout *)flowLayout {
+//    return 3;
+//}
+//// 当前组有多少个元素
+//- (NSInteger)flowLayout:(XFCyclicAnnularFlowLayout *)flowLayout  numberOfItemsInSection:(NSInteger)section {
+//    return 10;
+//}
 // 传入当前组的环绕半径
 - (CGFloat)flowLayout:(XFCyclicAnnularFlowLayout *)flowLayout cyclicAnnularRadiusInSection:(NSInteger)section {
     if (section == 0) {
