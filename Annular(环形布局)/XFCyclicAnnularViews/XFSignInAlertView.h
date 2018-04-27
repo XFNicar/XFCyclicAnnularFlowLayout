@@ -11,6 +11,6 @@
 @interface XFSignInAlertView : UIView
 
 
-- (void)updateWithSignInfoData:(id)data;
+//- (void)updateWithSignInfoData:(id)data;
 
 @end

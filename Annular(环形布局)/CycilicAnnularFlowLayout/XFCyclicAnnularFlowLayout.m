@@ -31,9 +31,9 @@
 
 - (void)prepareLayout {
     [super prepareLayout];
-    NSInteger sectionCount = [self.delegate numberOfSectionsInFlowLayout:self];
+    NSInteger sectionCount = [self.collectionView.dataSource numberOfSectionsInCollectionView:self.collectionView];
     for (NSInteger section = 0; section < sectionCount; section ++ ) {
-        NSInteger rowCount = [self.collectionView.dataSource numberOfSectionsInCollectionView:self.collectionView];
+        NSInteger rowCount = [self.collectionView.dataSource collectionView:self.collectionView numberOfItemsInSection:section];
         for (NSInteger row = 0; row < rowCount; row ++) {
             NSIndexPath *indexPath = [NSIndexPath indexPathForRow:row inSection:section];
             [self.myAttrs addObject:[self layoutAttributesForItemAtIndexPath:indexPath]];

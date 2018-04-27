@@ -27,14 +27,6 @@
 <font color=green , size=4.5>**API说明**</font>
 
 
-*  <font color=red , size=3>**当前组（环形）有多少个元素**</font>
- 
-	* <font color="#006666">**- (<font color="#0000dd"> NSInteger </font> )flowLayout:(XFCyclicAnnularFlowLayout *)flowLayout  numberOfItemsInSection:(NSInteger)section;**</font><br />
- 
- 	* 返回参数类型值说明如下：
-
-    		NSInteger 返回当前所在扇形（环形）区域 cell 数量
-
 *  <font color=red , size=3>**当前组的扇形（环形）半径**</font>
  
 	* <font color="#006666">**- (<font color="#0000dd"> CGFloat </font> )flowLayout:(XFCyclicAnnularFlowLayout *)flowLayout cyclicAnnularRadiusInSection:(NSInteger)section;**</font><br />
@@ -59,14 +51,6 @@
  	* 返回参数类型值说明如下：
 
     		CGFloat  返回当前组元素在视图上展开的弧度范围
-
-* <font color=red , size=3>**一共有多少组**</font>
- 
-	* <font color="#006666">**- (<font color="#0000dd"> NSInteger </font>)numberOfSectionsInFlowLayout:(XFCyclicAnnularFlowLayout *)flowLayout;**</font><br />
- 
- 	* 返回参数类型值说明如下：
-
-    		NSInteger  该返回值设定视图的环形一共有多少层，默认是 1 层
 
 * <font color=red , size=3>**该组元素在扇形区域内是否顺时针展开**</font>
  
